@@ -1,20 +1,27 @@
-import { useState } from 'react';
 import Counter from '../components/Counter';
 
 function Home() {
-  const [value, setValue] = useState(0);
-  const handleClick = () => {
-    setValue((prevState) => prevState + 1);
-  };
+  const counters = [
+    { title: 'Counter 1' },
+    { title: 'Counter 2' },
+    { title: 'Counter 3' },
+    { title: 'Counter 4' },
+    { title: 'Counter 5' },
+  ];
+
   return (
-    <>
-      <h1>Counter Title</h1>
-      <h2>{value}</h2>
-      <button type="button" onClick={handleClick}>Increment</button>
-      <button type="button" onClick={Counter}>Decrement</button>
-      <button type="button" onClick={() => setValue(0)}>Reset</button>
-    </>
+    <div
+      className="text-center d-flex flex-column justify-content-center align-content-center"
+      style={{
+        height: '90vh',
+        padding: '30px',
+        maxWidth: '400px',
+        margib: '0 auto',
+      }}
+    >
+      <h1>Welcome Home!</h1>
+      {counters.map((c) => <Counter title={c.title} />)}
+    </div>
   );
 }
-
 export default Home;
